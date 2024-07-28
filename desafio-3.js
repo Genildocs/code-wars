@@ -1,17 +1,25 @@
 function findUniq(arr) {
-   let sum = {}
-    let acc = 0
-   for (let i = 0; i < arr.length; i++){
-       sum[arr[i]] ={
-           q : i
-       }
+   const numFrequency = new Map()
 
+    // Contagem de frequência de cada número
+   for(let num of arr){
+       if(numFrequency.has(num)){ //verifica se a chave existe no map
+          numFrequency.set(num, numFrequency.get(num) +1 )
+       }else{
+           numFrequency.set(num, 1) //Não existindo é inserida
+       }
    }
 
-    console.log(sum)
+    // Encontrar o número com frequência 1
+   for (let[num,count] of numFrequency){
+       if(count === 1){
+           return num
+       }
+   }
 
 
 }
-findUniq([ 1, 0, 0 ])
-findUniq([ 1, 0, 2 ])
-findUniq([ 1, 1, 1, 2, 1, 1 ])
+
+console.log(findUniq([ 1, 0, 0 ]))
+console.log(findUniq([ 1, 0, 2 ]))
+console.log(findUniq([ 1, 1, 1, 2, 1, 1 ]))
