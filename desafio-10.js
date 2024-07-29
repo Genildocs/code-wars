@@ -19,6 +19,8 @@ function deleteNth(arr, n) {
     if (newArr.filter((x) => x === num).length < arrMap.get(num)) {
       newArr.push(num);
     }
+
+
   }
 
   return newArr;

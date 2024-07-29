@@ -14,7 +14,7 @@ OBSERVAÇÃO: Todos os números serão inteiros maiores que 0. */
 
 function expandedForm(num) {
   // Transformar o número em string e dividir em caracteres
-  const strinArray = num.toString().split("");
+  const strinArray = num.toString().split('');
   // Calcular a forma expandida
   const expand = strinArray
     .map((num, index) => {
@@ -24,7 +24,7 @@ function expandedForm(num) {
     .filter((val) => val > 0);
 
   // Juntar os valores em uma string com " + " entre eles
-  return expand.join(" + ");
+  return expand.join(' + ');
 }
 
 console.log(expandedForm(12));

@@ -7,7 +7,22 @@ Por exemplo (Entrada --> Saída) :
 4 --> 0 (because 4 is already a one-digit number, there is no multiplication) */
 
 function persistence(num) {
-  let numOfString = num.toString().split("");
+  // Inicialize o contador de multiplicações
+  let countMultiplique = 0;
+  while (num >= 10) {
+    // Converta o número para uma string e depois para um array de dígitos
+    let numOfString = num.toString().split('');
+    // Multiplique todos os dígitos para obter um novo número
+    num = numOfString.reduce((acc, curr) => {
+      return acc * curr;
+    }, 1);
+
+    // Incrementar o contador
+    countMultiplique++;
+  }
+
+  // Retorne o número de multiplicações
+  return countMultiplique;
 }
 
 console.log(persistence(39)); //result 3
