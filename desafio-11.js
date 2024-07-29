@@ -6,20 +6,32 @@ Exemplos:
 // * 'abcdef' => ['ab', 'cd', 'ef'] */
 
 function solution(str) {
+  let palavra = str.split('');
   if (str === '') {
-    return `return is []`;
+    return [];
+  }
+  let novoArray = []
+  for(let x = 0; x < palavra.length; x++){
+    if( x % 2 === 0){
+      novoArray.push(palavra.slice(x, x + 2).join(''))
+      let filters = novoArray.filter((num) =>{
+        return  num.length === 1
+      })
+
+      if(filters.length === 1){
+        filters.push('_')
+        filters = filters.join('').split(' ').join('')
+        novoArray.pop()
+        novoArray.push(filters)
+      }
+
+    }
   }
 
-  let palavra = [];
-  if (str.length % 2 === 0) {
-    palavra.push(str.split(' ').slice(0, 2));
-    palavra.push(str.split(' ').slice(2, 4));
-    palavra.push(str.split(' ').slice(4, 6));
-  }
-
-  return palavra;
+  return  novoArray
 }
 
+console.log(solution('abc'));
 console.log(solution('abcdef'));
-// console.log(solution("abcdefg"))
+console.log(solution("abcdefg"))
 console.log(solution(''));
