@@ -17,6 +17,7 @@ function count(string) {
 	let objetcCount = {}
 	for(let [key, value] of count.entries()){
 		objetcCount[key] = value
+
 	}
 	return objetcCount
 }

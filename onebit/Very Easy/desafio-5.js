@@ -25,7 +25,7 @@ function numInStr(arr) {
     }
   }
 
-  return contemNumber;
+  return contemNumber.join(' ');
 }
 console.log(numInStr(['1a', 'a', '2b', 'b']));
 console.log(numInStr(['abc', 'acb10']));
