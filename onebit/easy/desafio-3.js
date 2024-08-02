@@ -5,7 +5,7 @@ e retorna true caso possua e false caso não possua
 
 function verificaQuantidadeDeLetra(str) {
   const frequencia = new Map();
-  let count = {};
+  let count = [];
   for (let letra of str) {
     if (frequencia.has(letra)) {
       frequencia.set(letra, frequencia.get(letra) + 1);
@@ -14,11 +14,20 @@ function verificaQuantidadeDeLetra(str) {
     }
   }
 
-  for (let [key, value] of frequencia.entries()) {
-    count[key] = value;
+  for (let values of frequencia.values()) {
+    count.push(values);
   }
+
+  return count.every((count, index, arrray) =>
+    index !== 0 ? count === arrray[index - 1] : true
+  );
+
+  //Object.values transforma o objeto em um array contendo apenas o valores , o metodo every verifica se existe valores diferente e iguais.
+  // return Object.values(count).every((count, index, array) =>
+  //   index !== 0 ? count === array[index - 1] : true
+  // );
 }
 
 console.log(verificaQuantidadeDeLetra('ssd')); // false
-// console.log(verificaQuantidadeDeLetra('Lorem ipsum')) //false
-// console.log(verificaQuantidadeDeLetra('This is Thee')) // true
+console.log(verificaQuantidadeDeLetra('Lorem ipsum')); //false
+console.log(verificaQuantidadeDeLetra('This is Thee')); // true
