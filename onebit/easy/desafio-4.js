@@ -8,15 +8,18 @@ o valor de x. Apenas o quadrante onde x e y são positivos deve ser considerados
 // 2 - primeiro aumentar o valor de y e depois de x
 
 function ordenacao(arr) {
-  let x = [];
-  let y = [];
-  for (let i = 0; i < arr.length; i++) {
-    // if(arr[i]){
-    //   y.push(0, i + 1);
-    // }
-    console.log(i);
+  let arrayDePares = [];
+
+  for (let i = 0; i <= arr[0]; i++) {
+    for (let j = 0; j <= arr[1]; j++) {
+      arrayDePares.push([i, j]);
+    }
   }
+
+  return arrayDePares;
 }
 
 console.log(ordenacao([2, 2]));
 console.log(ordenacao([2, 7]));
+console.log(ordenacao([2, -7]));
+console.log(ordenacao([7, 6]));
