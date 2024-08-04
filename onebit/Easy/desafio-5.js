@@ -11,12 +11,14 @@ function contagemMoedas(num) {
 
   for (let i = 0; i < arrayDeMoedas.length; i++) {
     while (Number(arrayDeMoedas[i]) <= num) {
-      num -= Number(arrayDeMoedas[i]); //Não pensei em decrementar num ate chegar a zero
+      num -= Number(arrayDeMoedas[i]);
       moedas[arrayDeMoedas[i]]++;
     }
   }
   return moedas;
 }
-console.log(contagemMoedas(478));
+console.log(contagemMoedas(5412));
 console.log(contagemMoedas(384));
 console.log(contagemMoedas(50));
+console.log(contagemMoedas(1050));
+
